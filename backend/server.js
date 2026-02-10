@@ -3,9 +3,10 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
-dotenv.config();
+const productRoutes = require("./routes/productRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 
-// Connect Database
+dotenv.config();
 connectDB();
 
 const app = express();
@@ -13,6 +14,10 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Routes
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {
