@@ -69,3 +69,12 @@ Method	Endpoint	Description
 GET	/api/products	Get all products
 GET	/api/products/:id	Get single product
 POST	/api/orders	Create new order
+
+## 📷 Screenshots
+<img width="1910" height="957" alt="home" src="https://github.com/user-attachments/assets/bfcc58b4-02d6-488e-b7fe-089f4bb99af0" />
+
+<img width="1905" height="957" alt="details" src="https://github.com/user-attachments/assets/a95f039e-c298-4c41-b75b-aced0d75c868" />
+
+<img width="1895" height="960" alt="cart" src="https://github.com/user-attachments/assets/7d5bfd23-722e-4368-9f98-d551c3fd2963" />
+
+
