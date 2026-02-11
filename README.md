@@ -64,10 +64,15 @@ Open:
 frontend/index.html in your browser (or use Live Server in VS Code)
 
 📦 API Endpoints
-Method	Endpoint	          Description
-GET	   /api/products	      Get all products
-GET	   /api/products/:id	      Get single product
-POST	 /api/orders	          Create new order
+
+GET /api/products
+→ Get all products
+
+GET /api/products/:id
+→ Get a single product by ID
+
+POST /api/orders
+→ Create a new order
 
 ---
 
