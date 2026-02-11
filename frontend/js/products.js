@@ -1,25 +1,14 @@
 const productsContainer = document.getElementById("productsContainer");
 
-const sampleProducts = [
-  {
-    id: 1,
-    name: "Wireless Headphones",
-    price: 59.99,
-    image: "https://via.placeholder.com/300"
-  },
-  {
-    id: 2,
-    name: "Smart Watch",
-    price: 89.99,
-    image: "https://via.placeholder.com/300"
-  },
-  {
-    id: 3,
-    name: "Bluetooth Speaker",
-    price: 39.99,
-    image: "https://via.placeholder.com/300"
+async function fetchProducts() {
+  try {
+    const response = await fetch("http://localhost:5000/api/products");
+    const products = await response.json();
+    displayProducts(products);
+  } catch (error) {
+    console.error("Error fetching products:", error);
   }
-];
+}
 
 function displayProducts(products) {
   productsContainer.innerHTML = products.map(product => `
@@ -27,9 +16,31 @@ function displayProducts(products) {
       <img src="${product.image}" alt="${product.name}" />
       <h3>${product.name}</h3>
       <p>$${product.price}</p>
-      <button>View Details</button>
+      <button onclick="viewDetails('${product._id}')">View Details</button>
+      <button onclick="addToCart('${product._id}', '${product.name}', ${product.price})">
+        Add to Cart
+      </button>
     </div>
   `).join("");
 }
 
-displayProducts(sampleProducts);
+function viewDetails(id) {
+  window.location.href = `product.html?id=${id}`;
+}
+
+function addToCart(id, name, price) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existing = cart.find(item => item.id === id);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ id, name, price, quantity: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Added to cart!");
+}
+
+fetchProducts();
