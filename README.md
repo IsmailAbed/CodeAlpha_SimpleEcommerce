@@ -43,3 +43,30 @@ A full-stack e-commerce web application built as part of the CodeAlpha Full Stac
 ## ⚙️ How to Run Locally
 
 ### 1. Clone Repository
+git clone https://github.com/YOUR_USERNAME/CodeAlpha_SimpleEcommerce.git
+
+### 2. Backend Setup
+cd backend
+npm install
+npm run dev
+
+
+
+Make sure MongoDB is running locally. (Mine is running on cloud)
+
+### 3. Frontend
+Open `frontend/index.html` in your browser.
+
+---
+
+## 📌 Author
+
+Built by Abed Ismail as part of CodeAlpha Internship.
+
+
+---
+
+## 📌 Author
+
+Built by [Your Name] as part of CodeAlpha Internship.
+
